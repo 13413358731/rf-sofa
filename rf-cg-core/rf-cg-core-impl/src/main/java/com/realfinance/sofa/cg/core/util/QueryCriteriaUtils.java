@@ -1,6 +1,7 @@
 package com.realfinance.sofa.cg.core.util;
 
 import com.realfinance.sofa.cg.core.domain.*;
+import com.realfinance.sofa.cg.core.domain.commodity.Commodity;
 import com.realfinance.sofa.cg.core.domain.contract.ContractManage;
 import com.realfinance.sofa.cg.core.domain.exec.ProjectExecution;
 import com.realfinance.sofa.cg.core.domain.exec.ProjectExecutionAtt;
@@ -307,6 +308,19 @@ public class QueryCriteriaUtils {
 //            if (queryCriteria.getExpireDateBefore() != null) {
 //                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("expireDate"), queryCriteria.getExpireDateBefore()));
 //            }
+            return query.where(predicates.toArray(Predicate[]::new)).getRestriction();
+        };
+    }
+
+    public static Specification<Commodity> toSpecification(CgCommodityQueryCriteria queryCriteria) {
+        return (root, query, criteriaBuilder) -> {
+            if (queryCriteria == null) {
+                return null;
+            }
+            List<Predicate> predicates = new ArrayList<>();
+            if (queryCriteria.getCommodityNameLike() != null) {
+                predicates.add(criteriaBuilder.like(root.get("contractName"), "%" + queryCriteria.getCommodityNameLike() + "%"));
+            }
             return query.where(predicates.toArray(Predicate[]::new)).getRestriction();
         };
     }
