@@ -1,0 +1,72 @@
+service:
+  rf-system:
+    id: rf-system-sdebanksit
+  rf-cg-core:
+    id: rf-cg-core-sdebanksit
+  rf-flow:
+    id: rf-flow-sdebanksit
+spring:
+  datasource:
+    username: root@purchase_60#ob_dvl
+    password: Abcd1234
+    url: jdbc:oceanbase://obproxy.ops.aliyun-test.sdebank.com:3306/rf_cg_core?zeroDateTimeBehavior=convertToNull&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+#    url: jdbc:oceanbase://obproxy.ops.aliyun-test.sdebank.com:3306/sit_cg_core?zeroDateTimeBehavior=convertToNull&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.alipay.oceanbase.obproxy.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+#          ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+
+com:
+  alipay:
+    sofa:
+      rpc:
+#        registry-address: nacos://172.16.66.207:8080
+        registry-address: nacos://107.255.18.100:8080
+#        registry-address: nacos://107.255.22.226:8080
+        bolt-port: 22240
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter: trace
+    com.realfinance: debug
+
+
+
+#run:
+#  mode: NORMAL #运行模式
+#
+#com:
+#  alipay:
+#    env: shared #环境标识
+#    instanceid: GGR3SMJXTNZB #实例标识
+#    sofa:
+#      tracer:
+#        remote: dst
+#        dst:
+#          acvip: false
+#          url: http://107:255:15:246:7200/zipkin/api/v1/spans
+#        datasource:
+#         enterprise: true
+#      rpc:
+#        bolt-port: 22240
+#        bind-network-interface: eth0
+#        rest-port: 8342
+#        bolt-thread-pool-core-size: 200
+#        bolt-thread-pool-max-size: 500
+#        bolt-thread-pool-queue-size: 100
+#  antcloud:
+#    antvip:
+#      endpoint: 139.0.236.5 # AntVIP地址
+#    mw:
+#      access: ACgYoMcAHo4vPMJU # 访问控制键ID
+#      secret: Wi2JaDa6M4xUdtReyPTHiCbPeFcMs9bt #访问控制密钥
+#
+
+
+
+
+

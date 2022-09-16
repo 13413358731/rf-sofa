@@ -1,0 +1,30 @@
+service:
+  rf-system:
+    id: rf-system-uat
+  rf-cg-sup:
+    id: rf-cg-sup-uat
+spring:
+  datasource:
+    username: sofa
+    password: 123456
+    url: jdbc:mysql://10.22.1.209:3306/rf_cg_sup?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      #ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+com:
+  alipay:
+    sofa:
+      rpc:
+        registry-address: nacos://118.25.44.154:8999
+        bolt-port: 22230
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter: trace
+    com.realfinance: trace
+  config: /opt/logback.xml

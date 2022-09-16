@@ -1,0 +1,28 @@
+server:
+  port: 8081
+  servlet:
+    session:
+      cookie:
+        name: SUPSEESIONID
+service:
+  rf-cg-sup:
+    id: rf-cg-sup
+com:
+  alipay:
+    sofa:
+      rpc:
+        registry-address: nacos://localhost:8848
+spring:
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+logging:
+  level:
+    com.realfinance: debug
+rf:
+  api:
+    privateKey: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCXUI1uOzm7I2KMeA7UHqK8D83krJICQKlFVS2LEnIrvd1RnqdiUdUGEt3PXNNQZfsBdnbWhWPVR8ZpujQk3D+/2BcbNGmZOGirl3+k7qrszz6k8l/s/OKy0BSu9fMpmjsqsxP+3TBKzFnzLQyJMRv9OVoTo5sIhAtFKxI33s5DEJGaE8+5y65880kV8KKcPqSWKayI+WDItGR/19FjU8F2WrA21fTmAn5VQS1hDzzhz5CkhHwCq7uN7v4Biko+kCUSAMbsbe1ZlL/LySCdU94hP3m81+8Xpi7Fi5ajZbVVmQpFXRSAJfHrmEsBRLfPniYrK+3YVKU3oQvRwQJE2PktAgMBAAECggEAVlgD7HPlVJEzif50T7yPlgrarXN/+cMWFFcvnt1OwwEbyphi4WrayRV49vv8JTOcUNBdrbn+JtVHNkunt6Tqx7kyLjbxTxpuOARCNUZvyKPWFl+sN1pyriCovNHiCMpWmt4HOfbTuMr1RRtevOaGFzBj4zMHo4tdtwGF6tW8E23+Ztqwsxa+W90S3BprKBXWumFECHadkHApIPAO+zRcj2ox/jLJtN8VQm01cHQ/5eHTiokwqUx1Nf7YBEe5GhrNMt43NNLDXN/xREjQzNw8tYWynrfYbKNAcJwdnseSEmBKaWHdmmp72CHzQrRMrPMQAWwcXYwxVKVe8s7eEMHCrQKBgQDXvHhMJ3HnfMCa68VYxuBbb0N1sudcfPg0AyJzYGEAaJxy93xB51ZDOuLuhRESO/LwZym+O0ranBC+bj4ORHgCz3+DByyAB6ypR7Or2ciGPzWAbRcfpg1HfVVsDbgZB+sAafJBmpbjg9ULiM88Z2QsP3pbCrZjfHMaZkDi4vjNqwKBgQCzjh/FfrxCki51ZN+58fK7JCW+gid4ZQYvXuNpEK2MTBRi/Z1myxt4BjD79fy6BLws7p6lo2saMntvFQOtMgB7DDsxyfvCaV7q3+GIW5h50U5MKo7873eWBT0SZL0VFBKe1JcnuU1hCiN8VgI46JZwNQIAl9mdWh6eatn2oIGMhwKBgFKwyutlsyMnjivTczE0CYsCerkCeevZesl06h+PMZ8WeeEXO2mHYmkiiRkjqAd1Mwkyga2IzIg+iax0VRTi6Z0qK5XtigEI8AVylkuojlPmpnszVUmsPCrKv5NLLuVpQ4pFEbZTqsJKJb7mEYj1mE/dhOigkohPi07zIqvUk8lBAoGBALBFLGekHYl1HOrelsxi/BpASFWYTMti0gmbK8GvP9Dlt3Xe6LFLX7Ia0efo+6xajanGsDSIE9LqEEdi5/MVjWc/ALXGRsP60dXe5/gHg87DbgxUE3+4TzwV9HikMQQKaqVGqwWyYoaLf37GqPPZUibhww92A4r4N+rplwUJWWTtAoGADm9edDJ/uR/TsePZnVCAXtLwWGL5QEEAgSfbBdJtwiSGAGFm9eGzpyG3CLf7KioPv9PVkEtTuDizggfjmFdLPDtd8BGpcUEDMrKhsjIDkgrViK+Z7HlTHFrELRwPwjJEfdLfvOJPg6F0XPFQ8QztK5iWPGENJpDPh445cPcdlOo=

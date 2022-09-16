@@ -1,0 +1,177 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sofa="http://sofastack.io/schema/sofaboot"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://sofastack.io/schema/sofaboot   http://sofastack.io/schema/sofaboot.xsd"
+       default-autowire="byName">
+
+    <bean id="cgBiddingDocument" class="com.realfinance.sofa.cg.core.impl.CgBiddingDocumentImpl">
+    </bean>
+    <sofa:service ref="cgBiddingDocument" interface="com.realfinance.sofa.cg.core.facade.CgBiddingDocumentFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgChatRecordgChatRecord" class="com.realfinance.sofa.cg.core.impl.CgChatRecordImpl">
+    </bean>
+    <sofa:service ref="cgChatRecordgChatRecord" interface="com.realfinance.sofa.cg.core.facade.CgChatRecordFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+    <bean id="cgContractManage" class="com.realfinance.sofa.cg.core.impl.CgContractManageImpl">
+    </bean>
+    <sofa:service ref="cgContractManage" interface="com.realfinance.sofa.cg.core.facade.CgContractManageFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgDrawExpert" class="com.realfinance.sofa.cg.core.impl.CgDrawExpertImpl">
+    </bean>
+    <sofa:service ref="cgDrawExpert" interface="com.realfinance.sofa.cg.core.facade.CgDrawExpertFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgExpertConfirm" class="com.realfinance.sofa.cg.core.impl.CgExpertConfirmImpl">
+    </bean>
+    <sofa:service ref="cgExpertConfirm" interface="com.realfinance.sofa.cg.core.facade.CgExpertConfirmFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgExpertLabel" class="com.realfinance.sofa.cg.core.impl.CgExpertLabelImpl">
+    </bean>
+    <sofa:service ref="cgExpertLabel" interface="com.realfinance.sofa.cg.core.facade.CgExpertLabelFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgExpertLabelType" class="com.realfinance.sofa.cg.core.impl.CgExpertLabelTypeImpl">
+    </bean>
+    <sofa:service ref="cgExpertLabelType" interface="com.realfinance.sofa.cg.core.facade.CgExpertLabelTypeFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgHoliDay" class="com.realfinance.sofa.cg.core.impl.CgHoliDayimpl">
+    </bean>
+    <sofa:service ref="cgHoliDay" interface="com.realfinance.sofa.cg.core.facade.CgHoliDayFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgExpert" class="com.realfinance.sofa.cg.core.impl.CgExpertImpl">
+    </bean>
+    <sofa:service ref="cgExpert" interface="com.realfinance.sofa.cg.core.facade.CgExpertFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgMeeting" class="com.realfinance.sofa.cg.core.impl.CgMeetingImpl">
+    </bean>
+    <sofa:service ref="cgMeeting" interface="com.realfinance.sofa.cg.core.facade.CgMeetingFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgRequirement" class="com.realfinance.sofa.cg.core.impl.CgRequirementImpl">
+    </bean>
+    <sofa:service ref="cgRequirement" interface="com.realfinance.sofa.cg.core.facade.CgRequirementFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgOAJson" class="com.realfinance.sofa.cg.core.impl.CgOAJsonImpl">
+    </bean>
+    <sofa:service ref="cgOAJson" interface="com.realfinance.sofa.cg.core.facade.CgOAJsonFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgPurchasePlan" class="com.realfinance.sofa.cg.core.impl.CgPurchasePlanlmpl">
+    </bean>
+    <sofa:service ref="cgPurchasePlan" interface="com.realfinance.sofa.cg.core.facade.CgPurchasePlanFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgPurchaseResult" class="com.realfinance.sofa.cg.core.impl.CgPurchaseResultImpl">
+    </bean>
+    <sofa:service ref="cgPurchaseResult" interface="com.realfinance.sofa.cg.core.facade.CgPurchaseResultFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgParameter" class="com.realfinance.sofa.cg.core.impl.CgParameterImpl">
+    </bean>
+    <sofa:service ref="cgParameter" interface="com.realfinance.sofa.cg.core.facade.CgParameterFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgProductLibrary" class="com.realfinance.sofa.cg.core.impl.CgProductLibrarylmpl">
+    </bean>
+    <sofa:service ref="cgProductLibrary" interface="com.realfinance.sofa.cg.core.facade.CgProductLibraryFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgProjectExecution" class="com.realfinance.sofa.cg.core.impl.CgProjectExecutionImpl">
+    </bean>
+    <sofa:service ref="cgProjectExecution" interface="com.realfinance.sofa.cg.core.facade.CgProjectExecutionFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgProject" class="com.realfinance.sofa.cg.core.impl.CgProjectImpl">
+    </bean>
+    <sofa:service ref="cgProject" interface="com.realfinance.sofa.cg.core.facade.CgProjectFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgProjectSchedule" class="com.realfinance.sofa.cg.core.impl.CgProjectScheduleImpl">
+    </bean>
+    <sofa:service ref="cgProjectSchedule" interface="com.realfinance.sofa.cg.core.facade.CgProjectScheduleFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgPurchaseCatalog" class="com.realfinance.sofa.cg.core.impl.CgPurchaseCatalogImpl">
+    </bean>
+    <sofa:service ref="cgPurchaseCatalog" interface="com.realfinance.sofa.cg.core.facade.CgPurchaseCatalogFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgProjectScheduleUser" class="com.realfinance.sofa.cg.core.impl.CgProjectScheduleUserImpl">
+    </bean>
+    <sofa:service ref="cgProjectScheduleUser" interface="com.realfinance.sofa.cg.core.facade.CgProjectScheduleUserFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgPurchaseResultNotice" class="com.realfinance.sofa.cg.core.impl.CgPurchaseResultNoticelmpl">
+    </bean>
+    <sofa:service ref="cgPurchaseResultNotice" interface="com.realfinance.sofa.cg.core.facade.CgPurchaseResultNoticeFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgDrawExpertList" class="com.realfinance.sofa.cg.core.impl.CgDrawExpertListImpl">
+    </bean>
+    <sofa:service ref="cgDrawExpertList" interface="com.realfinance.sofa.cg.core.facade.CgDrawExpertListFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="cgMultipleRelease" class="com.realfinance.sofa.cg.core.impl.CgMultipleReleaseImpl">
+    </bean>
+    <sofa:service ref="cgMultipleRelease" interface="com.realfinance.sofa.cg.core.facade.CgMultipleReleaseFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+</beans>
+-->

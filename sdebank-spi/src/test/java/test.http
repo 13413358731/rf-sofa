@@ -1,0 +1,109 @@
+GET http://172.16.66.207:8888/cg/core/purchaseresultnotice/text
+Accept: application/json
+
+###
+GET http://localhost:8888/cg/core/requirement/emailText
+Accept: application/json
+
+###
+GET http://172.16.66.207:8888/cg/core/drawexperts/text
+Accept: application/json
+
+###
+GET http://172.16.66.207:8888/mytask/todotask/portalTaskVo?task=6
+Accept: application/json
+
+###
+POST http://172.16.66.208:9527/tytask?code=ebdedfa5d5223e5f2dc39a2c2ff0ca75&state=348
+Content-Type: application/json
+
+{}
+
+###
+GET http://localhost:8888/cg/core/requirement/emailText
+Accept: application/json
+
+###
+GET http://localhost:8081/cg/supsolicitation/list?page=1&size=15&total=0
+Accept: application/json
+
+###
+POST http://localhost:8081/login?tenant=01
+Content-Type: application/x-www-form-urlencoded
+
+username=username&password=123456a.
+
+###
+GET http://localhost:8888/system/datasync/text
+Accept: application/json
+
+###
+POST http://localhost:8888/system/datasync/syncAll
+Content-Type: application/json
+
+{}
+
+###
+GET http://localhost:8888/mytask/todotask/portalTaskVo
+Accept: application/json
+
+###
+
+POST http://localhost:8888/cg/core/requirement/getOAJson
+Content-Type: application/json
+
+[
+  {
+    "TITLE": "移动办公跨机构上行文",
+    "url": "http://imis.sdebank.com/oa_intdoc.pr.prOA_INTDOCWFPERReadOnly.do?WFWorkItem/processInstID=8155426&WFWorkItem/activityInstName=本机构归档&WFWorkItem/activityInstID=53122860&WFWorkItem/DOCTYPE=03&WFWorkItem/DOCID=1717147&WFWorkItem/logflag=part",
+    "URGENTLEV": "01",
+    "DOCNO": "2021700301000011",
+    "FILE": "移动办公跨机构上行文.doc",
+    "ZIPFILE": "1717147_03.zip"
+  }
+]
+
+
+
+
+###
+GET http://172.16.249.18:9082/oa_common.prGeneralQuery.prGeneralQueryInputForItil.do
+Accept: application/x-www-form-urlencoded
+
+###
+
+###2.48
+POST http://107.255.1.204:9090/dataapi/execute?apiCode=raex_company_fxmx&batch=false&queryTypeParam=EQUITY_PENETRATION&queryType=EXTERNAL_DATASOURCE
+Content-Type: application/json;charset=UTF-8
+Authorization: bearer MjVkNmUzODItOWEwMS00YzViLTk1MzEtNjNlYTY3MDQxY2Yx
+
+{
+  "requestData": {
+    "corpName":"阿里巴巴华南技术有限公司",
+    "corpCreditNo": "91440101MA5ALRRJ0E"
+  }
+}
+
+###2.26
+POST http://107.255.1.204:9090/dataapi/execute?apiCode=elementbusiinfo&batch=false&queryTypeParam=EQUITY_PENETRATION&queryType=EXTERNAL_DATASOURCE
+Content-Type: application/json;charset=UTF-8
+Authorization: bearer MmRmMDZkNTktNDg2Yi00YmUzLWEyOTctMzNjODA5Nzk0ZTQw
+
+{
+  "requestData": {
+    "corpName": "新疆巴音工程建设（集团）有限公司"
+  }
+}
+
+###获取token端口
+POST http://107.255.1.204:8611/poseidon/integration/oauth/token?grant_type=client_credentials
+Content-Type: application/json
+Authorization: Basic YmFlYTA4YjgtOTNlZS00ZDA3LWE4YWEtYWZmZTllN2MxYTY0OlNveEJ2cmFYcFZqdk41dHRmOTM1NmIwT0Ftc1h3cWpIRnhWa25TelRScUJ4UVpYV3ZmaW5wN1pQY1VZUW4xZlI=
+
+
+###
+POST http://172.16.66.207:8888/login?tenant=01
+Content-Type: application/x-www-form-urlencoded
+
+username=01wb1115&password=123456
+

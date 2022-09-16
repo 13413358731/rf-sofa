@@ -1,0 +1,38 @@
+GET http://localhost:8888/system/datasync/text
+Accept: application/json
+
+###
+POST http://107.255.18.100:8888/ssoLogin?code=4c6265394a3862cdcfd4040367b114b8&state=348
+Content-Type: application/json
+
+###
+
+###3.3	获取用户信息接口
+GET http://iam.eip.sdebank.com:8084/idp/oauth2/getUserInfo?access_token=be8053d752a3f2d6877ac45c03a31d32&client_id=SRCPS
+Accept: application/json
+
+###3.2	获取授权Token接口
+POST http://iam.eip.sdebank.com:8084/idp/oauth2/getToken?client_id=SRCPS&grant_type=authorization_code&code=05b0485be568e982c094790acb16853f&client_secret=5efc13bd93a944d493e39347ca7022a6
+Content-Type: application/json
+
+{}
+
+###3.1	请求用户授权接口
+GET http://iam.eip.sdebank.com:8084/idp/oauth2/authorize?state=311&client_id=SRCPS&response_type=code&redirect_uri=http%3A%2F%2F107.255.18.100%3A8888%2F%23%2Fddlogin
+
+Accept: application/json
+
+###
+POST http://localhost:8888/login?tenant=01
+Content-Type: application/x-www-form-urlencoded
+
+username=01testuser2&password=123456
+
+###
+GET http://localhost:8888/mytask/todotask/portalTaskVo?SIZE=5&DATA_TYPE=
+Accept: application/json
+
+
+###
+GET http://localhost:8888/system/datasync/text
+Accept: application/json

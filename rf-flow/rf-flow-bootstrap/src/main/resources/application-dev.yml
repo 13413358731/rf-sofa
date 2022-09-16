@@ -1,0 +1,36 @@
+service:
+  rf-system:
+    id: rf-system
+  rf-flow:
+    id: rf-flow
+spring:
+  datasource:
+    username: root
+    password: 123456
+    #初始化flowable的表时需要在数据源的url上加上&nullCatalogMeansCurrent=true
+    url: jdbc:mysql://localhost:3306/rf_system?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+      #ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+com:
+  alipay:
+    sofa:
+      rpc:
+        registry-address: nacos://localhost:8848
+        bolt-port: 22220
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.event.internal.DefaultPersistEventListener: debug
+    org.flowable.task.service.impl.persistence.entity: debug
+    org.flowable.engine.impl.persistence.entity: debug
+    com.realfinance: trace
+flowable:
+  database-schema-update: false
+  idm:
+    enabled: false

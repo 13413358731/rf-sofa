@@ -1,0 +1,68 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sofa="http://sofastack.io/schema/sofaboot"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://sofastack.io/schema/sofaboot   http://sofastack.io/schema/sofaboot.xsd"
+       default-autowire="byName">
+
+    <bean id="bizMng" class="com.realfinance.sofa.flow.impl.BizMngImpl">
+    </bean>
+    <sofa:service ref="bizMng" interface="com.realfinance.sofa.flow.facade.BizMngFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    &lt;!&ndash;<bean id="bizMng" class="com.realfinance.sofa.flow.support.SimpleCallbackImpl">
+
+    </bean>
+    <sofa:service ref="bizMng" interface="com.realfinance.sofa.flow.facade.CallbackFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>&ndash;&gt;
+
+    <bean id="flow" class="com.realfinance.sofa.flow.impl.FlowImpl">
+    </bean>
+    <sofa:service ref="flow" interface="com.realfinance.sofa.flow.facade.FlowFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="idm" class="com.realfinance.sofa.flow.impl.IdmImpl">
+    </bean>
+    <sofa:service ref="idm" interface="com.realfinance.sofa.flow.facade.IdmFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="modeler" class="com.realfinance.sofa.flow.impl.ModelerImpl">
+    </bean>
+    <sofa:service ref="modeler" interface="com.realfinance.sofa.flow.facade.ModelerFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="processDef" class="com.realfinance.sofa.flow.impl.ProcessDefImpl">
+    </bean>
+    <sofa:service ref="processDef" interface="com.realfinance.sofa.flow.facade.ProcessDefFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="processIns" class="com.realfinance.sofa.flow.impl.ProcessInsImpl">
+    </bean>
+    <sofa:service ref="processIns" interface="com.realfinance.sofa.flow.facade.ProcessInsFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="task" class="com.realfinance.sofa.flow.impl.TaskImpl">
+    </bean>
+    <sofa:service ref="task" interface="com.realfinance.sofa.flow.facade.TaskFacade">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+</beans>
+-->

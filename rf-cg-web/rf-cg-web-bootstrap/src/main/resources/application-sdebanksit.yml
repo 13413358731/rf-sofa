@@ -1,0 +1,89 @@
+server:
+  port: 8888
+service:
+  rf-system:
+    id: rf-system-sdebanksit
+  rf-flow:
+    id: rf-flow-sdebanksit
+  rf-cg-core:
+    id: rf-cg-core-sdebanksit
+  rf-cg-sup:
+    id: rf-cg-sup-sdebanksit
+
+com:
+  alipay:
+    sofa:
+      rpc:
+#        registry-address: nacos://172.16.66.207:8080
+        registry-address: nacos://107.255.18.100:8080
+        consumer-repeated-reference-limit: 5
+      #        registry-address: nacos://107.255.22.226:8080
+
+
+#run:
+#  mode: NORMAL #运行模式
+#
+#com:
+#  alipay:
+#    env: shared #环境标识
+#    instanceid: GGR3SMJXTNZB #实例标识
+#    sofa:
+#      tracer:
+#        remote: dst
+#        dst:
+#          acvip: false
+#          url: http://107:255:15:246:7200/zipkin/api/v1/spans
+#        datasource:
+#          enterprise: true
+#      rpc:
+#        bind-network-interface: eth0
+#        rest-port: 8342
+#        bolt-thread-pool-core-size: 200
+#        bolt-thread-pool-max-size: 500
+#        bolt-thread-pool-queue-size: 100
+#  antcloud:
+#    antvip:
+#      endpoint: 139.0.236.5 # AntVIP地址
+#    mw:
+#      access: ACgYoMcAHo4vPMJU # 访问控制键ID
+#      secret: Wi2JaDa6M4xUdtReyPTHiCbPeFcMs9bt #访问控制密钥
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 1024MB #设置附件单个文件上传大小最大值
+  datasource:
+    username: root@purchase_60#ob_dvl
+    password: Abcd1234
+    url: jdbc:oceanbase://obproxy.ops.aliyun-test.sdebank.com:3306/rf_cg_web?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+#    url: jdbc:oceanbase://obproxy.ops.aliyun-test.sdebank.com:3306/sit_cg_web?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.alipay.oceanbase.obproxy.mysql.jdbc.Driver
+  session:
+    store-type: jdbc
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+logging:
+  level:
+    com.realfinance: debug
+#  config: ./logback.xml
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+
+rf-flow:
+  getUrl: http://107.255.18.100:8888
+#  getUrl: http://107.255.22.226:8888
+
+sdebank:
+  sso:
+    getTokenUrl: http://iam.eip.sdebank.com:8084/idp/oauth2/getToken?client_id=SRCPS&grant_type=authorization_code&code={0}&client_secret=5efc13bd93a944d493e39347ca7022a6
+    getUserInfoUrl: http://iam.eip.sdebank.com:8084/idp/oauth2/getUserInfo?access_token={0}&client_id=SRCPS
+

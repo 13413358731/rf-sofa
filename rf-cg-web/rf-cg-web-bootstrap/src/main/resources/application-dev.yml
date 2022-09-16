@@ -1,0 +1,49 @@
+
+service:
+  rf-system:
+    id: rf-system
+  rf-flow:
+    id: rf-flow
+  rf-cg-core:
+    id: rf-cg-core
+  rf-cg-sup:
+    id: rf-cg-sup
+com:
+  alipay:
+    sofa:
+      rpc:
+        registry-address: nacos://localhost:8848
+        consumer-repeated-reference-limit: 5
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/rf_cg_web?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  session:
+    store-type: jdbc
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+#      initialize-schema: embedded
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+logging:
+  level:
+    com.realfinance: debug
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+server:
+  port: 8888
+
+sdebank:
+  sso:
+    getTokenUrl: http://iam.eip.sdebank.com:8084/idp/oauth2/getToken?client_id=SRCPS&grant_type=authorization_code&code={0}&client_secret=5efc13bd93a944d493e39347ca7022a6
+    getUserInfoUrl: http://iam.eip.sdebank.com:8084/idp/oauth2/getUserInfo?access_token={0}&client_id=SRCPS

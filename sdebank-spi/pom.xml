@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>rf-sofa</artifactId>
+        <groupId>com.realfinance.sofa</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>sdebank-spi</artifactId>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.realfinance.sofa</groupId>
+            <artifactId>rf-common-filestore</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.realfinance.sofa</groupId>
+            <artifactId>rf-common-notice</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.realfinance.sofa</groupId>
+            <artifactId>rf-common-ocr</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alipay.sofa</groupId>
+            <artifactId>rpc-sofa-boot</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>2.1.3</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 顺德农商行影像平台 -->
+        <dependency>
+            <groupId>com.tchzt</groupId>
+            <artifactId>cm-client</artifactId>
+            <version>2.9.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/cm-client2.9.0_1.8jdk.jar</systemPath>
+        </dependency>
+        <!-- 顺德无纸化印章-->
+        <dependency>
+            <groupId>cfca.paperless</groupId>
+            <artifactId>sdns-client</artifactId>
+            <version>2.9.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/SDNSPaperlessClient.jar</systemPath>
+        </dependency>
+        <!-- 企查查 -->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <!--SFTP -->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.55</version>
+        </dependency>
+    </dependencies>
+
+</project>

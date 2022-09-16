@@ -1,0 +1,87 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sofa="http://sofastack.io/schema/sofaboot"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://sofastack.io/schema/sofaboot   http://sofastack.io/schema/sofaboot.xsd"
+       default-autowire="byName">
+
+    <bean id="associatedTran" class="com.realfinance.sofa.system.facade.AssociatedTranFacade" abstract="true">
+    </bean>
+    <sofa:service ref="associatedTran" interface="com.realfinance.sofa.system.sdebank.associatedTran.AssociatedTranImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="dataSync" class="com.realfinance.sofa.system.facade.DataSyncFacade" abstract="true">
+    </bean>
+    <sofa:service ref="dataSync" interface="com.realfinance.sofa.system.sdebank.datasync.DataSyncImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="departmentMng" class="com.realfinance.sofa.system.facade.DepartmentMngFacade" abstract="true">
+    </bean>
+    <sofa:service ref="departmentMng" interface="com.realfinance.sofa.system.impl.DepartmentMngImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="menuMng" class="com.realfinance.sofa.system.facade.MenuMngFacade" abstract="true">
+    </bean>
+    <sofa:service ref="menuMng" interface="com.realfinance.sofa.system.impl.MenuMngImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="roleGroupMng" class="com.realfinance.sofa.system.facade.RoleGroupMngFacade" abstract="true">
+    </bean>
+    <sofa:service ref="roleGroupMng" interface="com.realfinance.sofa.system.impl.RoleGroupMngImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="roleMng" class="com.realfinance.sofa.system.facade.RoleMngFacade" abstract="true">
+    </bean>
+    <sofa:service ref="roleMng" interface="com.realfinance.sofa.system.impl.RoleMngImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="systemQuery" class="com.realfinance.sofa.system.facade.SystemQueryFacade" abstract="true">
+    </bean>
+    <sofa:service ref="systemQuery" interface="com.realfinance.sofa.system.impl.SystemQueryImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="tenantMng" class="com.realfinance.sofa.system.facade.TenantMngFacade" abstract="true">
+    </bean>
+    <sofa:service ref="tenantMng" interface="com.realfinance.sofa.system.impl.TenantMngImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="template" class="com.realfinance.sofa.system.facade.TextTemplateFacade" abstract="true">
+    </bean>
+    <sofa:service ref="template" interface="com.realfinance.sofa.system.impl.TextTemplateImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="userAuthInfo" class="com.realfinance.sofa.system.facade.UserAuthInfoFacade" abstract="true">
+    </bean>
+    <sofa:service ref="cgBusinessProject" interface="com.realfinance.sofa.system.impl.UserAuthInfoImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+
+    <bean id="userMng" class="com.realfinance.sofa.system.facade.UserMngFacade" abstract="true">
+    </bean>
+    <sofa:service ref="userMng" interface="com.realfinance.sofa.system.impl.UserMngImpl">
+        <sofa:binding.bolt/>
+        <sofa:binding.rest/>
+    </sofa:service>
+</beans>
+-->

@@ -1,0 +1,29 @@
+service:
+  rf-system:
+    id: rf-system-test
+  rf-cg-core:
+    id: rf-cg-core-test
+spring:
+  datasource:
+    url: jdbc:h2:mem:/rf_system
+    platform: h2
+    driver-class-name: org.h2.Driver
+    username: sofa
+    password: 123456
+ #   data: classpath:data-test.sql
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+com:
+  alipay:
+    sofa:
+      rpc:
+        registry-address: nacos://118.25.44.154:8999
+        bolt-port: 22241
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter: trace
+    com.realfinance: debug

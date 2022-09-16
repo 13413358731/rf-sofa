@@ -1,0 +1,43 @@
+service:
+  rf-system:
+    id: rf-system
+  rf-cg-core:
+    id: rf-cg-core
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/rf_cg_core?zeroDateTimeBehavior=convertToNull&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      #ddl-auto: none
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+
+#spring:
+#  datasource:
+#    username: root
+#    password: root
+#    url: jdbc:mysql://localhost:3307/rf_cg_core?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+#    type: com.zaxxer.hikari.HikariDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    hibernate:
+#      #ddl-auto: none
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
+#    show-sql: true
+com:
+  alipay:
+    sofa:
+      rpc:
+        registry-address: nacos://localhost:8848
+        bolt-port: 22240
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter: trace
+    com.realfinance: debug

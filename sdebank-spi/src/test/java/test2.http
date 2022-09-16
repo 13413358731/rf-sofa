@@ -1,0 +1,257 @@
+GET http://localhost:8888/cg/core/contractManage/text
+Accept: application/json
+
+###
+POST http://localhost:8888/cg/core/reqacceptance/flow/startprocess?id=1000187
+Content-Type: application/json
+
+{}
+
+###
+POST http://localhost:8888/cg/sup/solicitation/stops
+Content-Type: application/json
+
+[22,23,24]
+
+
+###
+POST http://localhost:8888/mytask/todotask/completesystemtask?id=0a4f27bc-ef6f-11eb-a139-2cf05d4a2c48&businessCode=internalresultnotice
+Content-Type: application/json
+
+{}
+
+###
+POST http://107.255.18.100:8888/cg/core/reqacceptance/flow/startprocess?id=130
+Content-Type: application/json
+
+{}
+
+###
+GET http://localhost:8888/cg/sup/supplierEvaluationSheet/text
+Accept: application/json
+
+###
+GET http://107.255.18.100:8888/purchaseresultnoticemng/purchaseresultnotice/view/1000014
+Accept: application/json
+
+###
+GET http://localhost:8888/cg/core/reqacceptance/assignClaim?id=23
+Accept: application/json
+
+###
+GET http://localhost:8888/cg/core/purresult/getdetailsbyid?id=2
+Accept: application/json
+
+###
+POST http://107.255.18.100:8888/cg/core/purresult/supplierCreditStatus
+Content-Type: application/json
+
+{
+  "purResultSups": [
+    {
+      "id": 5,
+      "supplierId": {
+        "id": 7,
+        "name": "阿里巴巴华南技术有限公司",
+        "unifiedSocialCreditCode": "91440101MA5ALRRJ0E"
+      }
+    },
+    {
+      "id": 6,
+      "supplierId": {
+        "id": 1,
+        "name": "阿里巴巴（中国）网络技术有限公司",
+        "unifiedSocialCreditCode": "91330100716105852F"
+      }
+    }
+  ]
+}
+
+###
+
+POST http://107.255.18.100:8888/cg/core/project/supplierCreditStatus
+Content-Type: application/json
+
+{
+  "projectSups": [
+    {
+      "id": 52,
+      "supplier": {
+        "id": 1,
+        "name": "阿里巴巴（中国）网络技术有限公司",
+        "unifiedSocialCreditCode": "91330100716105852F"
+      }
+    },
+    {
+      "id": 53,
+      "supplier": {
+        "id": 12,
+        "name": "深圳市腾讯计算机系统有限公司",
+        "unifiedSocialCreditCode": "91440300708461136T"
+      }
+    },
+    {
+      "id": 54,
+      "supplier": {
+        "id": 7,
+        "name": "阿里巴巴华南技术有限公司",
+        "unifiedSocialCreditCode": "91440101MA5ALRRJ0E"
+      }
+    }
+  ]
+}
+
+###
+POST http://107.255.18.100:8888/cg/core/purresult/supplierRelatedStatus
+Content-Type: application/json
+
+{
+  "purResultSups": [
+    {
+      "id": 5,
+      "supplierId": {
+        "idCardNumber": "**************3672"
+      }
+    }
+  ]
+}
+
+###
+POST http://107.255.18.100:8888/cg/core/purresult/supplierRelationship
+Content-Type: application/json
+
+{
+  "id": 2,
+  "relationships": [
+    {
+      "name": "阿里巴巴华南技术有限公司"
+    },
+    {
+      "name": "阿里巴巴（中国）网络技术有限公司"
+    }
+  ]
+}
+
+###
+POST http://107.255.18.100:8888/cg/core/project/supplierRelatedStatus
+Content-Type: application/json
+
+{
+  "projectSups": [
+    {
+      "id": 1,
+      "supplier": {
+        "idCardNumber": "**************2681"
+      }
+    }
+  ]
+}
+
+###
+POST http://107.255.18.100:8888/cg/core/project/supplierRelationship
+Content-Type: application/json
+
+{
+  "id": 21,
+  "relationships": [
+    {
+      "name": "阿里巴巴（中国）网络技术有限公司"
+    },
+    {
+      "name": "阿里巴巴华南技术有限公司"
+    },
+    {
+      "name": "深圳市腾讯计算机系统有限公司"
+    }
+  ]
+}
+
+###
+GET http://localhost:8888/cg/core/requirement/getdetailsbyid?id=30
+Accept: application/json
+
+###
+GET http://107.255.18.100:8888/cg/core/requirement/getdetailsbyid?id=1
+Accept: application/json
+
+###查询供应商关联交易情况
+POST http://107.255.18.100:8888/cg/core/requirement/supplierRelatedStatus
+Content-Type: application/json
+
+{
+  "requirementSups": [
+    {
+      "id": 1000078,
+      "supplier": {
+        "idCardNumber": "**************2681"
+      }
+    }
+  ]
+}
+
+###
+POST http://107.255.18.100:8888/cg/core/requirement/supplierCreditStatus
+Content-Type: application/json
+
+{
+  "requirementSups": [
+    {
+      "id": 1000077,
+      "supplier": {
+        "id": 1,
+        "name": "阿里巴巴（中国）网络技术有限公司",
+        "unifiedSocialCreditCode": "91330100716105852F"
+      }
+    },
+    {
+      "id": 1000078,
+      "supplier": {
+        "id": 7,
+        "name": "阿里巴巴华南技术有限公司",
+        "unifiedSocialCreditCode": "91440101MA5ALRRJ0E"
+      }
+    },
+    {
+      "id": 1000079,
+      "supplier": {
+        "id": 12,
+        "name": "深圳市腾讯计算机系统有限公司",
+        "unifiedSocialCreditCode": "91440300708461136T"
+      }
+    }
+  ]
+}
+
+###
+GET http://107.255.18.100:8888/cg/core/requirement/getdetailsbyid?id=22
+Accept: application/json
+
+###
+POST http://107.255.18.100:8888/cg/core/requirement/supplierRelationship
+Content-Type: application/json
+
+{
+  "id": 30,
+  "relationships": [
+    {
+      "name": "云南珠江实业集团有限公司"
+    },
+    {
+      "name": "杭州坤宝投资咨询有限公司"
+    },
+    {
+      "name": "新疆巴音工程建设（集团）有限公司"
+    }
+  ]
+}
+
+
+###
+POST http://localhost:8888/login?tenant=01
+Content-Type: application/x-www-form-urlencoded
+
+username=01wb1115&password=123456
+
+
+
+

@@ -1,0 +1,86 @@
+{
+  "name": "新增供应商",
+  "reqTotalAmount": 1000,
+  "marketPrice": 800,
+  "reqUserPhone": "13539454000",
+  "useDepartments": [
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    }
+  ],
+  "purDepartment": {
+    "id": 2
+  },
+  "supRequirements": "string",
+  "supSpecialRequirements": "string",
+  "note": "string",
+  "purType": "KJ",
+  "purMode": "GGZB",
+  "projFeatures": "YXTWH",
+  "sugEvalMethod": "ZDPBJF",
+  "contractCategory": "KJXY",
+  "contractCreatedUser": {
+    "id": 9
+  },
+  "contractValidity": "2021-01-15",
+  "purCategory": "MLCG",
+  "planStatus": "JHW",
+  "number": 1,
+  "numberOfWinSup": 1,
+  "purContent": "Content123",
+  "supplyLocation": "string",
+  "deliveryTime": "2021-01-15",
+  "contractTerm": "string",
+  "qualityRequirements": "string",
+  "serviceRequirements": "string",
+  "transportRequirements": "string",
+  "deliveryRequirements": "string",
+  "afterSalesService": "string",
+  "paymentMethod": "string",
+  "breachClause": "string",
+  "hasBond": false,
+  "supplement": "string",
+  "requirementItems": [
+    {
+      "purchaseCatalog": {
+        "id": 1
+      },
+      "name": "清单1",
+      "number": 1,
+      "marketPrice": 400,
+      "qualityRequirements": "string",
+      "note": "string",
+      "requirementItemSups": [
+        {
+          "supplier": {
+            "id": 1
+          },
+          "contactName": "张三",
+          "contactMobile": "13539414000",
+          "contactEmail": "413528000@qq.com",
+          "reason": "不知道",
+          "note": "string",
+        }
+      ],
+      "needSample": true
+    }
+  ],
+  "requirementAtts": [
+    {
+      "name": "附件1",
+      "uploadTime": "2021-01-15 03:39:28",
+      "source": "req",
+      "size": 1,
+      "ext": ".rar",
+      "path": "/fake/附件1.rar"
+    }
+  ],
+  "requirementOaData": [
+    {
+      "approvalNo": "123456789"
+    }
+  ]
+}
