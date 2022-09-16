@@ -3,7 +3,7 @@ package com.realfinance.sofa.cg.core.model;
 public class CgCommodityQueryCriteria {
 
     /**
-     * 项目名称模糊
+     * 商品名称模糊
      */
     private String commodityNameLike;
 
