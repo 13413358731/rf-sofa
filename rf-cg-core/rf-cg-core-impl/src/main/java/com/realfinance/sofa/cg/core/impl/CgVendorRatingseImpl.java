@@ -65,7 +65,7 @@ public class CgVendorRatingseImpl implements CgVendorRatingsFacade {
     @Override
     public Page<CgVendorRatingsDto> list(CgVendorRatingsQueryCriteria queryCriteria, Pageable pageable) {
         Objects.requireNonNull(pageable);
-        System.out.println("搞一个代码冲突");
+        System.out.println("代码冲突,搞一个代码冲突");
         Page<VendorRating> result = vendorRatingsRepository.findAll(QueryCriteriaUtils.toSpecification(queryCriteria)
                 .and(jpaQueryHelper.dataRuleSpecification()), pageable);
         return result.map(vendorRatingsMapper::toDto);
