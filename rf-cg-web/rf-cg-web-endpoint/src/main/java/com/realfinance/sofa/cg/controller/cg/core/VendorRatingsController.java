@@ -54,7 +54,7 @@ import java.util.Set;
 public class VendorRatingsController implements FlowApi {
     private static final Logger log = LoggerFactory.getLogger(VendorRatingsController.class);
 
-    public static final String MENU_CODE_ROOT = "contract";
+    public static final String MENU_CODE_ROOT = "vendorRating";
 
     @SofaReference(interfaceType = CgVendorRatingsFacade.class, uniqueId = "${service.rf-cg-core.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
     private CgVendorRatingsFacade cgVendorRatingsFacade;
