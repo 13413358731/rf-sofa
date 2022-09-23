@@ -286,7 +286,7 @@ public class QueryCriteriaUtils {
             }
             List<Predicate> predicates = new ArrayList<>();
             if (queryCriteria.getVendorNameLike() != null) {
-                predicates.add(criteriaBuilder.like(root.get("contractName"), "%" + queryCriteria.getVendorNameLike() + "%"));
+                predicates.add(criteriaBuilder.like(root.get("vendorRatingsName"), "%" + queryCriteria.getVendorNameLike() + "%"));
             }
 //            if (queryCriteria.getProjectNoLike() != null) {
 //                predicates.add(criteriaBuilder.like(root.get("projectNo"), "%" + queryCriteria.getProjectNoLike() + "%"));
@@ -319,7 +319,7 @@ public class QueryCriteriaUtils {
             }
             List<Predicate> predicates = new ArrayList<>();
             if (queryCriteria.getCommodityNameLike() != null) {
-                predicates.add(criteriaBuilder.like(root.get("contractName"), "%" + queryCriteria.getCommodityNameLike() + "%"));
+                predicates.add(criteriaBuilder.like(root.get("commodityName"), "%" + queryCriteria.getCommodityNameLike() + "%"));
             }
             return query.where(predicates.toArray(Predicate[]::new)).getRestriction();
         };

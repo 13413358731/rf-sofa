@@ -53,7 +53,7 @@ public class CommodityController implements FlowApi {
     private CgCommodityMapper cgCommodityMapper;
 
     @GetMapping("Commoditylist")
-    @Operation(summary = "查询供应商评分列表")
+    @Operation(summary = "查询采购商品")
 //    @Parameters({
 //            @Parameter(name = "startDateBefore", schema = @Schema(type = "string", format = "date-time"), description = "合同生效日期之前", in = ParameterIn.QUERY),
 //            @Parameter(name = "startDateAfter", schema = @Schema(type = "string", format = "date-time"), description = "合同生效日期之后", in = ParameterIn.QUERY),
