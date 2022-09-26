@@ -4,6 +4,7 @@ import com.alipay.sofa.runtime.api.annotation.SofaService;
 import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
 import com.realfinance.sofa.cg.core.domain.ContractAttachment;
 import com.realfinance.sofa.cg.core.domain.PurchaseResultNotice;
+import com.realfinance.sofa.cg.core.domain.VendorAttachment;
 import com.realfinance.sofa.cg.core.domain.contract.ContractManage;
 import com.realfinance.sofa.cg.core.domain.vendor.VendorRating;
 import com.realfinance.sofa.cg.core.facade.CgContractManageFacade;
@@ -12,10 +13,7 @@ import com.realfinance.sofa.cg.core.model.*;
 import com.realfinance.sofa.cg.core.repository.ContractManageRepository;
 import com.realfinance.sofa.cg.core.repository.PurchaseResultNoticeRepository;
 import com.realfinance.sofa.cg.core.repository.VendorRatingsRepository;
-import com.realfinance.sofa.cg.core.service.mapstruct.ContractManageDetailsMapper;
-import com.realfinance.sofa.cg.core.service.mapstruct.ContractManageMapper;
-import com.realfinance.sofa.cg.core.service.mapstruct.ContractManageSaveMapper;
-import com.realfinance.sofa.cg.core.service.mapstruct.VendorRatingsMapper;
+import com.realfinance.sofa.cg.core.service.mapstruct.*;
 import com.realfinance.sofa.cg.core.util.QueryCriteriaUtils;
 import com.realfinance.sofa.common.datascope.DataScopeUtils;
 import com.realfinance.sofa.common.datascope.JpaQueryHelper;
@@ -53,12 +51,14 @@ public class CgVendorRatingseImpl implements CgVendorRatingsFacade {
     private final JpaQueryHelper jpaQueryHelper;
     private final VendorRatingsRepository vendorRatingsRepository;
     private final VendorRatingsMapper vendorRatingsMapper;
+    private final VendorRatingsSaveMapper vendorRatingsSaveMapper;
     private final PurchaseResultNoticeRepository purchaseResultNoticeRepository;
 
-    public CgVendorRatingseImpl(JpaQueryHelper jpaQueryHelper, VendorRatingsRepository vendorRatingsRepository, VendorRatingsMapper vendorRatingsMapper, PurchaseResultNoticeRepository purchaseResultNoticeRepository) {
+    public CgVendorRatingseImpl(JpaQueryHelper jpaQueryHelper, VendorRatingsRepository vendorRatingsRepository, VendorRatingsMapper vendorRatingsMapper, VendorRatingsSaveMapper vendorRatingsSaveMapper, PurchaseResultNoticeRepository purchaseResultNoticeRepository) {
         this.jpaQueryHelper = jpaQueryHelper;
         this.vendorRatingsRepository = vendorRatingsRepository;
         this.vendorRatingsMapper = vendorRatingsMapper;
+        this.vendorRatingsSaveMapper = vendorRatingsSaveMapper;
         this.purchaseResultNoticeRepository = purchaseResultNoticeRepository;
     }
 
@@ -69,6 +69,40 @@ public class CgVendorRatingseImpl implements CgVendorRatingsFacade {
         Page<VendorRating> result = vendorRatingsRepository.findAll(QueryCriteriaUtils.toSpecification(queryCriteria)
                 .and(jpaQueryHelper.dataRuleSpecification()), pageable);
         return result.map(vendorRatingsMapper::toDto);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Integer save(@NotNull CgVendorRatingsSaveDto saveDto) {
+        Objects.requireNonNull(saveDto);
+        VendorRating vendorRating;
+        if (saveDto.getId() == null) { // 新增
+            vendorRating = vendorRatingsSaveMapper.toEntity(saveDto);
+            List<VendorAttachment> vendorAttachments = vendorRating.getVendorAttachments();
+            if (vendorAttachments != null) {
+                for (VendorAttachment vendorAttachment : vendorAttachments) {
+                    vendorAttachment.setSource("供应商评价");
+                    vendorAttachment.setUploader(DataScopeUtils.loadPrincipalId().orElse(null));
+                }
+            }
+            vendorRating.setVendorAttachments(vendorAttachments);
+            vendorRating.setTenantId(DataScopeUtils.loadTenantId());
+//            vendorRating.setFileStatus(0);
+        } else { // 修改
+            VendorRating entity = getVendorRating(saveDto.getId());
+            vendorRating = vendorRatingsSaveMapper.updateEntity(entity, saveDto);
+        }
+        try {
+            //重置 预计通知待办发送状态
+            vendorRating.setExpireStatus(0);
+            VendorRating saved = vendorRatingsRepository.saveAndFlush(vendorRating);
+            return saved.getId();
+        } catch (Exception e) {
+            if (log.isErrorEnabled()) {
+                log.error("保存失败", e);
+            }
+            throw businessException("保存失败,because:" + e.getMessage());
+        }
     }
 
     @Override
@@ -99,6 +133,7 @@ public class CgVendorRatingseImpl implements CgVendorRatingsFacade {
     }
 
 
+
 //    @Override
 //    public CgContractManageDetailsDto getDetailsById(@NotNull Integer id) {
 //        Objects.requireNonNull(id);
@@ -113,18 +148,18 @@ public class CgVendorRatingseImpl implements CgVendorRatingsFacade {
      * @param id
      * @return
      */
-//    protected ContractManage getContractManage(Integer id) {
-//        Objects.requireNonNull(id);
-//        List<ContractManage> all = vendorRatingsRepository.findAll(
-//                ((Specification<ContractManage>) (root, query, criteriaBuilder) ->
-//                        criteriaBuilder.equal(root.get("id"), id))
-//                        .and(jpaQueryHelper.dataRuleSpecification()));
-//        if (all.isEmpty()) {
-//            if (!vendorRatingsRepository.existsById(id)) {
-//                System.out.println("找不到相应合同管理");
-//            }
-//            throw dataAccessForbidden();
-//        }
-//        return all.get(0);
-//    }
+    protected VendorRating getVendorRating(Integer id) {
+        Objects.requireNonNull(id);
+        List<VendorRating> all = vendorRatingsRepository.findAll(
+                ((Specification<VendorRating>) (root, query, criteriaBuilder) ->
+                        criteriaBuilder.equal(root.get("id"), id))
+                        .and(jpaQueryHelper.dataRuleSpecification()));
+        if (all.isEmpty()) {
+            if (!vendorRatingsRepository.existsById(id)) {
+                System.out.println("找不到相应供应商");
+            }
+            throw dataAccessForbidden();
+        }
+        return all.get(0);
+    }
 }

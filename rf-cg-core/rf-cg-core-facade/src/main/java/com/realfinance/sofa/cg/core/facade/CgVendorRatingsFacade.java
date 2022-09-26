@@ -14,7 +14,7 @@ public interface CgVendorRatingsFacade {
 
 //    CgContractManageDetailsDto getDetailsById(@NotNull Integer id);
 
-//    Integer save(@NotNull CgContractManageSaveDto saveDto);
+    Integer save(@NotNull CgVendorRatingsSaveDto saveDto);
 //
     void delete(@NotNull Set<Integer> ids);
 //

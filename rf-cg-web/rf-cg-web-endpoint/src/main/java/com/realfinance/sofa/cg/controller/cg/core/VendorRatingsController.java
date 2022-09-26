@@ -51,7 +51,7 @@ import java.util.Set;
 @RestController
 @Tag(name = "供应商评分")
 @RequestMapping("/cg/core/VendorRatingsController")
-public class VendorRatingsController implements FlowApi {
+public class VendorRatingsController{
     private static final Logger log = LoggerFactory.getLogger(VendorRatingsController.class);
 
     public static final String MENU_CODE_ROOT = "vendorRating";
@@ -94,27 +94,19 @@ public class VendorRatingsController implements FlowApi {
         return ResponseEntity.ok(result.map(cgVendorRatingsMapper::toVo));
     }
 
+    @PostMapping("save")
+    @Operation(summary = "保存")
+    public ResponseEntity<Integer> save(@Validated @RequestBody CgVendorRatingsVo vo) {
+        CgVendorRatingsSaveDto saveDto = cgVendorRatingsMapper.toSaveDto(vo);
+        Integer id = cgVendorRatingsFacade.save(saveDto);
+        return ResponseEntity.ok(id);
+    }
+
+
     @DeleteMapping("delete")
     @Operation(summary = "删除")
     public ResponseEntity<?> delete(@Parameter(description = "供应商评价ID") @RequestParam Set<Integer> id) {
         cgVendorRatingsFacade.delete(id);
         return ResponseEntity.ok().build();
     }
-
-
-    @Override
-    public String getBusinessCode() {
-        return MENU_CODE_ROOT;
-    }
-
-    @Override
-    public FlowFacade getFlowFacade() {
-        return flowFacade;
-    }
-
-    @Override
-    public ResponseEntity<FlowCallbackResponse> flowCallback(@RequestBody FlowCallbackRequest request) {
-        return ResponseEntity.ok(FlowCallbackResponse.ok());
-    }
-
 }
