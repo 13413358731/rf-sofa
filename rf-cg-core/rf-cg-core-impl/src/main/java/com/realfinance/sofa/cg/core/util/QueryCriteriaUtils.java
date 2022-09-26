@@ -287,7 +287,7 @@ public class QueryCriteriaUtils {
             }
             List<Predicate> predicates = new ArrayList<>();
             if (queryCriteria.getVendorNameLike() != null) {
-                predicates.add(criteriaBuilder.like(root.get("vendorRatingsName"), "%" + queryCriteria.getVendorNameLike() + "%"));
+                predicates.add(criteriaBuilder.like(root.get("vendorName"), "%" + queryCriteria.getVendorNameLike() + "%"));
             }
 //            if (queryCriteria.getProjectNoLike() != null) {
 //                predicates.add(criteriaBuilder.like(root.get("projectNo"), "%" + queryCriteria.getProjectNoLike() + "%"));
