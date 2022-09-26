@@ -47,7 +47,7 @@ public class VendorRating extends BaseEntity implements IEntity<Integer> {
     private String projectName;
 
     /**
-     * 是否发送合同预警待办 0 否 1 是
+     * 是否过期状态 0 否 1 是
      */
     private Integer expireStatus;
 

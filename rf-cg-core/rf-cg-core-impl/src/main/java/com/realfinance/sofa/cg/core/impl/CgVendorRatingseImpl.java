@@ -88,13 +88,15 @@ public class CgVendorRatingseImpl implements CgVendorRatingsFacade {
             vendorRating.setVendorAttachments(vendorAttachments);
             vendorRating.setTenantId(DataScopeUtils.loadTenantId());
 //            vendorRating.setFileStatus(0);
+            vendorRating.setExpireStatus(0);
         } else { // 修改
             VendorRating entity = getVendorRating(saveDto.getId());
             vendorRating = vendorRatingsSaveMapper.updateEntity(entity, saveDto);
+            vendorRating.setExpireStatus(1);
         }
         try {
             //重置 预计通知待办发送状态
-            vendorRating.setExpireStatus(0);
+//            vendorRating.setExpireStatus(0);
             VendorRating saved = vendorRatingsRepository.saveAndFlush(vendorRating);
             return saved.getId();
         } catch (Exception e) {
