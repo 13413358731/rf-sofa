@@ -41,6 +41,16 @@ public class CgVendorRatingsVo extends BaseVo implements FlowableVo,IdentityObje
 
     protected FlowInfoVo flowInfo;
 
+    /**
+     *供应商服务满意度
+     */
+    private String vendorSatisfactory;
+
+    /**
+     *项目满意度
+     */
+    private String projectSatisfactory;
+
     @Override
     public Integer getId() {
         return id;
@@ -95,5 +105,21 @@ public class CgVendorRatingsVo extends BaseVo implements FlowableVo,IdentityObje
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getVendorSatisfactory() {
+        return vendorSatisfactory;
+    }
+
+    public void setVendorSatisfactory(String vendorSatisfactory) {
+        this.vendorSatisfactory = vendorSatisfactory;
+    }
+
+    public String getProjectSatisfactory() {
+        return projectSatisfactory;
+    }
+
+    public void setProjectSatisfactory(String projectSatisfactory) {
+        this.projectSatisfactory = projectSatisfactory;
     }
 }

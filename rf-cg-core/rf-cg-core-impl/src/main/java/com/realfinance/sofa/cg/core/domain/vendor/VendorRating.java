@@ -47,6 +47,19 @@ public class VendorRating extends BaseEntity implements IEntity<Integer> {
     private String projectName;
 
     /**
+     *供应商服务满意度
+     */
+    @Column(nullable = false)
+    private String vendorSatisfactory;
+
+    /**
+     *项目满意度
+     */
+    @Column(nullable = false)
+    private String projectSatisfactory;
+
+
+    /**
      * 是否过期状态 0 否 1 是
      */
     private Integer expireStatus;
@@ -109,5 +122,21 @@ public class VendorRating extends BaseEntity implements IEntity<Integer> {
 
     public void setExpireStatus(Integer expireStatus) {
         this.expireStatus = expireStatus;
+    }
+
+    public String getVendorSatisfactory() {
+        return vendorSatisfactory;
+    }
+
+    public void setVendorSatisfactory(String vendorSatisfactory) {
+        this.vendorSatisfactory = vendorSatisfactory;
+    }
+
+    public String getProjectSatisfactory() {
+        return projectSatisfactory;
+    }
+
+    public void setProjectSatisfactory(String projectSatisfactory) {
+        this.projectSatisfactory = projectSatisfactory;
     }
 }

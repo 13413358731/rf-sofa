@@ -27,6 +27,16 @@ public class CgVendorRatingsDto extends BaseDto {
      */
     private String projectName;
 
+    /**
+     *供应商服务满意度
+     */
+    private String vendorSatisfactory;
+
+    /**
+     *项目满意度
+     */
+    private String projectSatisfactory;
+
 
     public Integer getId() {
         return id;
@@ -66,5 +76,21 @@ public class CgVendorRatingsDto extends BaseDto {
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
+    }
+
+    public String getVendorSatisfactory() {
+        return vendorSatisfactory;
+    }
+
+    public void setVendorSatisfactory(String vendorSatisfactory) {
+        this.vendorSatisfactory = vendorSatisfactory;
+    }
+
+    public String getProjectSatisfactory() {
+        return projectSatisfactory;
+    }
+
+    public void setProjectSatisfactory(String projectSatisfactory) {
+        this.projectSatisfactory = projectSatisfactory;
     }
 }
