@@ -1,9 +1,6 @@
 package com.realfinance.sofa.cg.core.facade;
 
-import com.realfinance.sofa.cg.core.model.CgCommodityDto;
-import com.realfinance.sofa.cg.core.model.CgCommodityQueryCriteria;
-import com.realfinance.sofa.cg.core.model.CgVendorRatingsDto;
-import com.realfinance.sofa.cg.core.model.CgVendorRatingsQueryCriteria;
+import com.realfinance.sofa.cg.core.model.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,8 +13,7 @@ public interface CgCommodityFacade {
 
 //    CgContractManageDetailsDto getDetailsById(@NotNull Integer id);
 
-//    Integer save(@NotNull CgContractManageSaveDto saveDto);
-//
+    Integer save(@NotNull CgCommoditySaveDto saveDto);
     void delete(@NotNull Set<Integer> ids);
 
 }

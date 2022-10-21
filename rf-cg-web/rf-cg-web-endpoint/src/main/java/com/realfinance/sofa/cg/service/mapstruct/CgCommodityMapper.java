@@ -1,6 +1,7 @@
 package com.realfinance.sofa.cg.service.mapstruct;
 
 import com.realfinance.sofa.cg.core.model.CgCommodityDto;
+import com.realfinance.sofa.cg.core.model.CgCommoditySaveDto;
 import com.realfinance.sofa.cg.core.model.CgVendorRatingsDto;
 import com.realfinance.sofa.cg.core.model.CgVendorRatingsSaveDto;
 import com.realfinance.sofa.cg.model.cg.CgCommodityVo;
@@ -15,7 +16,7 @@ public interface CgCommodityMapper {
 
 //    CgVendorRatingsVo toVo(CgContractManageDetailsDto cgContractManageDetailsDto);
 
-    CgCommodityDto toSaveDto(CgCommodityVo vo);
+    CgCommoditySaveDto toSaveDto(CgCommodityVo vo);
 
 
 

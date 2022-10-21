@@ -2,6 +2,7 @@ package com.realfinance.sofa.cg.core.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class CgCommodityDto extends BaseDto {
 
@@ -45,7 +46,7 @@ public class CgCommodityDto extends BaseDto {
     /**
      *交付时间
      */
-    private LocalDate deliveryTime;
+    private LocalDateTime deliveryTime;
 
     public Integer getId() {
         return id;
@@ -111,11 +112,11 @@ public class CgCommodityDto extends BaseDto {
         this.totalAmount = totalAmount;
     }
 
-    public LocalDate getDeliveryTime() {
+    public LocalDateTime getDeliveryTime() {
         return deliveryTime;
     }
 
-    public void setDeliveryTime(LocalDate deliveryTime) {
+    public void setDeliveryTime(LocalDateTime deliveryTime) {
         this.deliveryTime = deliveryTime;
     }
 }

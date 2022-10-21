@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Schema(description = "商品对象")
@@ -55,7 +56,7 @@ public class CgCommodityVo extends BaseVo implements FlowableVo,IdentityObject<I
     /**
      *交付时间
      */
-    private LocalDate deliveryTime;
+    private LocalDateTime deliveryTime;
 
 
     private String status;
@@ -126,11 +127,11 @@ public class CgCommodityVo extends BaseVo implements FlowableVo,IdentityObject<I
         this.totalAmount = totalAmount;
     }
 
-    public LocalDate getDeliveryTime() {
+    public LocalDateTime getDeliveryTime() {
         return deliveryTime;
     }
 
-    public void setDeliveryTime(LocalDate deliveryTime) {
+    public void setDeliveryTime(LocalDateTime deliveryTime) {
         this.deliveryTime = deliveryTime;
     }
 

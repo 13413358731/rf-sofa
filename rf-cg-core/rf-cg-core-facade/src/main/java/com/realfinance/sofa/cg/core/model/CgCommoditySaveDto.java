@@ -1,82 +1,56 @@
-package com.realfinance.sofa.cg.core.domain.commodity;
+package com.realfinance.sofa.cg.core.model;
 
-import com.realfinance.sofa.cg.core.domain.BaseEntity;
-import com.realfinance.sofa.common.model.IEntity;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-/**
- * 采购商品
- */
-@Entity
-@Table(name = "CG_CORE_Commodity")
-//@EntityListeners(AuditingEntityListener.class)
-public class Commodity extends BaseEntity implements IEntity<Integer> {
+public class CgCommoditySaveDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**
      * 法人ID
      */
-    @Column(nullable = false)
     private String tenantId;
 
     /**
-     *商品编号
+     * 商品编号
      */
-    @Column(nullable = false)
     private Integer commodityId;
 
     /**
-     *商品名称
+     * 商品名称
      */
-    @Column(nullable = false)
     private String commodityName;
 
     /**
-     *供应商名称
+     * 供应商名称
      */
-    @Column(nullable = false)
     private String vendorName;
 
     /**
-     *项目名称
+     * 项目名称
      */
-    @Column(nullable = false)
     private String projectName;
 
-
     /**
-     *购买部门
+     * 购买部门
      */
-    @Column(nullable = false)
     private String department;
 
     /**
-     *购买金额
+     * 购买金额
      */
-    @Column(nullable = false)
     private BigDecimal totalAmount;
 
     /**
-     *交付时间
+     * 交付时间
      */
-//    @CreatedDate
-    @Column(nullable = false)
     private LocalDateTime deliveryTime;
 
-
-
     public Integer getId() {
-       return id;
-   }
+        return id;
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -88,22 +62,6 @@ public class Commodity extends BaseEntity implements IEntity<Integer> {
 
     public void setTenantId(String tenantId) {
         this.tenantId = tenantId;
-    }
-
-    public String getVendorName() {
-        return vendorName;
-    }
-
-    public void setVendorName(String vendorName) {
-        this.vendorName = vendorName;
-    }
-
-    public String getProjectName() {
-        return projectName;
-    }
-
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
     }
 
     public Integer getCommodityId() {
@@ -120,6 +78,22 @@ public class Commodity extends BaseEntity implements IEntity<Integer> {
 
     public void setCommodityName(String commodityName) {
         this.commodityName = commodityName;
+    }
+
+    public String getVendorName() {
+        return vendorName;
+    }
+
+    public void setVendorName(String vendorName) {
+        this.vendorName = vendorName;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public String getDepartment() {
