@@ -2,6 +2,7 @@ package com.realfinance.sofa.cg.core.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class CgAfterSalesDto extends BaseDto {
 
@@ -55,12 +56,12 @@ public class CgAfterSalesDto extends BaseDto {
     /**
      *申请时间
      */
-    private LocalDate applicationTime;
+    private LocalDateTime applicationTime;
 
     /**
      *处理时间
      */
-    private LocalDate processingTime;
+    private LocalDateTime processingTime;
 
     public Integer getId() {
         return id;
@@ -110,11 +111,11 @@ public class CgAfterSalesDto extends BaseDto {
         this.totalAmount = totalAmount;
     }
 
-    public LocalDate getProcessingTime() {
+    public LocalDateTime getProcessingTime() {
         return processingTime;
     }
 
-    public void setProcessingTime(LocalDate processingTime) {
+    public void setProcessingTime(LocalDateTime processingTime) {
         this.processingTime = processingTime;
     }
 
@@ -150,11 +151,11 @@ public class CgAfterSalesDto extends BaseDto {
         this.acceptance = acceptance;
     }
 
-    public LocalDate getApplicationTime() {
+    public LocalDateTime getApplicationTime() {
         return applicationTime;
     }
 
-    public void setApplicationTime(LocalDate applicationTime) {
+    public void setApplicationTime(LocalDateTime applicationTime) {
         this.applicationTime = applicationTime;
     }
 }

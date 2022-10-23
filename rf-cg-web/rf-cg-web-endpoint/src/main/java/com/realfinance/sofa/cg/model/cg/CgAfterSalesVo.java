@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Schema(description = "售后对象")
@@ -64,12 +65,12 @@ public class CgAfterSalesVo extends BaseVo implements FlowableVo,IdentityObject<
     /**
      *申请时间
      */
-    private LocalDate applicationTime;
+    private LocalDateTime applicationTime;
 
     /**
      *处理时间
      */
-    private LocalDate processingTime;
+    private LocalDateTime processingTime;
 
 
     private String status;
@@ -172,19 +173,19 @@ public class CgAfterSalesVo extends BaseVo implements FlowableVo,IdentityObject<
         this.acceptance = acceptance;
     }
 
-    public LocalDate getApplicationTime() {
+    public LocalDateTime getApplicationTime() {
         return applicationTime;
     }
 
-    public void setApplicationTime(LocalDate applicationTime) {
+    public void setApplicationTime(LocalDateTime applicationTime) {
         this.applicationTime = applicationTime;
     }
 
-    public LocalDate getProcessingTime() {
+    public LocalDateTime getProcessingTime() {
         return processingTime;
     }
 
-    public void setProcessingTime(LocalDate processingTime) {
+    public void setProcessingTime(LocalDateTime processingTime) {
         this.processingTime = processingTime;
     }
 }

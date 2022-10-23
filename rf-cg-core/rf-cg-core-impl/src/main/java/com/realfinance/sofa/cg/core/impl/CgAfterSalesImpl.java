@@ -6,17 +6,17 @@ import com.realfinance.sofa.cg.core.domain.AfterSales.AfterSales;
 import com.realfinance.sofa.cg.core.domain.commodity.Commodity;
 import com.realfinance.sofa.cg.core.facade.CgAfterSalesFacade;
 import com.realfinance.sofa.cg.core.facade.CgCommodityFacade;
-import com.realfinance.sofa.cg.core.model.CgAfterSalesDto;
-import com.realfinance.sofa.cg.core.model.CgAfterSalesQueryCriteria;
-import com.realfinance.sofa.cg.core.model.CgCommodityDto;
-import com.realfinance.sofa.cg.core.model.CgCommodityQueryCriteria;
+import com.realfinance.sofa.cg.core.model.*;
 import com.realfinance.sofa.cg.core.repository.AfterSalesRepository;
 import com.realfinance.sofa.cg.core.repository.CommodityRepository;
 import com.realfinance.sofa.cg.core.repository.PurchaseResultNoticeRepository;
 import com.realfinance.sofa.cg.core.service.mapstruct.AfterSalesMapper;
+import com.realfinance.sofa.cg.core.service.mapstruct.AfterSalesSaveMapper;
 import com.realfinance.sofa.cg.core.service.mapstruct.CommodityMapper;
 import com.realfinance.sofa.cg.core.util.QueryCriteriaUtils;
+import com.realfinance.sofa.common.datascope.DataScopeUtils;
 import com.realfinance.sofa.common.datascope.JpaQueryHelper;
+import org.aspectj.lang.annotation.After;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -25,6 +25,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -47,12 +48,14 @@ public class CgAfterSalesImpl implements CgAfterSalesFacade {
     private final AfterSalesRepository afterSalesRepository;
     private final AfterSalesMapper afterSalesMapper;
     private final PurchaseResultNoticeRepository purchaseResultNoticeRepository;
+    private final AfterSalesSaveMapper afterSalesSaveMapper;
 
-    public CgAfterSalesImpl(JpaQueryHelper jpaQueryHelper, AfterSalesRepository afterSalesRepository, AfterSalesMapper afterSalesMapper, PurchaseResultNoticeRepository purchaseResultNoticeRepository) {
+    public CgAfterSalesImpl(JpaQueryHelper jpaQueryHelper, AfterSalesRepository afterSalesRepository, AfterSalesMapper afterSalesMapper, PurchaseResultNoticeRepository purchaseResultNoticeRepository, AfterSalesSaveMapper afterSalesSaveMapper) {
         this.jpaQueryHelper = jpaQueryHelper;
         this.afterSalesRepository = afterSalesRepository;
         this.afterSalesMapper = afterSalesMapper;
         this.purchaseResultNoticeRepository = purchaseResultNoticeRepository;
+        this.afterSalesSaveMapper = afterSalesSaveMapper;
     }
 
     @Override
@@ -61,6 +64,31 @@ public class CgAfterSalesImpl implements CgAfterSalesFacade {
         Page<AfterSales> result = afterSalesRepository.findAll(QueryCriteriaUtils.toSpecification(queryCriteria)
                 .and(jpaQueryHelper.dataRuleSpecification()), pageable);
         return result.map(afterSalesMapper::toDto);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Integer save(@NotNull CgAfterSalesDto saveDto) {
+        Objects.requireNonNull(saveDto);
+        AfterSales afterSales;
+        if (saveDto.getId() == null) { // 新增
+            afterSales = afterSalesSaveMapper.toEntity(saveDto);
+            afterSales.setTenantId(DataScopeUtils.loadTenantId());
+        } else { // 修改
+            AfterSales sales = getAfterSales(saveDto.getId());
+            afterSales = afterSalesSaveMapper.updateEntity(sales, saveDto);
+        }
+        try {
+            //重置 预计通知待办发送状态
+//            vendorRating.setExpireStatus(0);
+            AfterSales saved = afterSalesRepository.saveAndFlush(afterSales);
+            return saved.getId();
+        } catch (Exception e) {
+            if (log.isErrorEnabled()) {
+                log.error("保存失败", e);
+            }
+            throw businessException("保存失败,because:" + e.getMessage());
+        }
     }
 
     @Override
@@ -88,5 +116,19 @@ public class CgAfterSalesImpl implements CgAfterSalesFacade {
             }
             throw businessException("删除失败");
         }
+    }
+    protected AfterSales getAfterSales(Integer id) {
+        Objects.requireNonNull(id);
+        List<AfterSales> all = afterSalesRepository.findAll(
+                ((Specification<AfterSales>) (root, query, criteriaBuilder) ->
+                        criteriaBuilder.equal(root.get("id"), id))
+                        .and(jpaQueryHelper.dataRuleSpecification()));
+        if (all.isEmpty()) {
+            if (!afterSalesRepository.existsById(id)) {
+                System.out.println("找不到相应的商品");
+            }
+            throw dataAccessForbidden();
+        }
+        return all.get(0);
     }
 }
